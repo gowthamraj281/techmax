@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment # Kubernetes resource kind we are creating
+metadata:
+  name: devops-deployment
+spec:
+  selector:
+    matchLabels:
+      app: devops-demo
+  replicas: 1 # Number of replicas that will be created for this deployment
+  template:
+    metadata:
+      labels:
+        app: devops-demo
+    spec:
+      containers:
+        - name: devops-demo
+          image: gowthamraj281/devops # Image that will be used to containers in the cluster
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+ 
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: devopssvc
+spec:
+  selector:
+    app: devops-demo
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: NodePort
+
+        
+        
+        
+        
