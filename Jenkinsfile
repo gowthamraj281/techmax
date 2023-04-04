@@ -25,6 +25,7 @@ pipeline {
                     withCredentials([string(credentialsId: 'admin2', variable: 'admin2')]) {
                         bat "docker login -u gowthamraj281 -p ${admin2}"
                     }
+                    bat "docker push gowthamraj281/devops3"
                 }
             }
         }
