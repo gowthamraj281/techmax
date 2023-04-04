@@ -15,17 +15,17 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    bat "docker build -t gowthamraj281/devops ."
+                    bat "docker build -t gowthamraj281/devops3 ."
                 }
             }
         }
         stage("Push Image to hub"){
             steps {
                 script {
-                   withCredentials([string(credentialsId: 'admin3', variable: 'admin2')]){
-                    bat "docker login -u gowthamraj281 -p ${admin2}"
+                   withCredentials([string(credentialsId: 'demo4', variable: 'demo')])){
+                    bat "docker login -u gowthamraj281 -p ${demo}"
 }
-                    bat "docker push gowthamraj281/devops"
+                    bat "docker push gowthamraj281/devops3"
                     
                 }
             }
