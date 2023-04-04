@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: devops-demo
-          image: gowthamraj281/devops # Image that will be used to containers in the cluster
+          image: gowthamraj281/devops3 # Image that will be used to containers in the cluster
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80
